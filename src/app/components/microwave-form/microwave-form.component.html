@@ -1,0 +1,244 @@
+
+ <mat-card class="example-card">
+    <!-- <form [formGroup]="form" class="normal-form" (submit)="onSubmit()"> -->
+    <mat-card-header>
+        <mat-card-title>
+          <div class="text-center w-100">
+            <span> <small>"طلب شبكات الإتاحة على الميكروويف"</small></span>
+            <br>
+            <span> Microwave Service Request Form</span>
+         
+          </div>
+         
+           <!-- <div class="" style="float: right;">
+               <span class="option submit" type="submit"><small>Submit</small></span> 
+               <span class="separator mx-1">|</span>
+               <span class="option text-danger"  (click)="onClose()"><small>Cancel</small></span>
+               
+            </div> -->
+            
+        </mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+
+
+
+    <!-- <mat-toolbar>
+        <span class="fill-remaining-space"></span>
+        <button class="btn-dialog-close" mat-stroked-button  tabIndex="-1" (click)="onClose()"><mat-icon>clear</mat-icon></button>
+      </mat-toolbar> -->
+      
+      
+      <mat-horizontal-stepper linear #stepper>
+        <mat-step>
+          <form [formGroup]="form" class="normal-form" (submit)="onSubmit()">
+            <ng-template matStepLabel>Fill out Data</ng-template>
+            <mat-grid-list cols="2" rowHeight="90px">
+              <mat-grid-tile>
+                <div class="controles-container">
+                  <mat-form-field>
+                    <input formControlName="NameofSalesManager" matInput placeholder="Name of Sales Manager / اسم مدير المبيعات*">
+                    <mat-error>This field is mandatory.</mat-error> 
+                  </mat-form-field>
+                  </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="controles-container">
+                  <mat-form-field>
+                    <input formControlName="Contact" matInput placeholder="Contact / بيانات الاتصال *">
+                    <mat-error>This field is mandatory.</mat-error> 
+                  </mat-form-field>
+                  </div>
+                  </mat-grid-tile>
+                  </mat-grid-list>
+            <div class="text-right">
+              <button mat-button class="nxt" matStepperNext>Next</button>
+            </div>
+        </form>
+        </mat-step>
+       
+        <mat-step>
+          <form [formGroup]="form" class="normal-form" (submit)="onSubmit()">
+          <ng-template matStepLabel>Customer Information</ng-template>
+          <mat-grid-list cols="2" rowHeight="150px">
+            <mat-grid-tile >
+              <div class="controles-container">
+                <input type="hidden" formControlName="$key">
+                <mat-form-field>
+                  <input formControlName="CompanyName" matInput placeholder="Company Name / اسم الشركة*">
+                  <mat-error>This field is mandatory.</mat-error> 
+                </mat-form-field>
+                <mat-form-field>
+                  <input formControlName="ContactName" matInput placeholder="Contact Name / الاسم*">
+                  <mat-error>This field is mandatory.</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <input formControlName="Email" matInput placeholder="Email / البريد الالكتروني">
+                  <mat-error>Invalid email address.</mat-error>
+                </mat-form-field>
+                
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <div class="controles-container">
+                <mat-form-field>
+                  <input formControlName="Mobile" matInput placeholder="Mobile / الموبايل*">
+                  <!-- <mat-error *ngIf="form.controls['mobile'].errors?.required">This field is mandatory.</mat-error>
+                  <mat-error *ngIf="form.controls['mobile'].errors?.minlength">Minimum 11 charactors needed.</mat-error> -->
+                </mat-form-field>
+                <mat-form-field>
+                  <textarea formControlName="OtherInformation" rows="3" matInput placeholder="Other Information / بيانات اخرى">
+                    </textarea>
+                </mat-form-field>
+                
+                
+               
+              </div>
+            </mat-grid-tile>
+            
+          </mat-grid-list>
+          <div class="text-right">
+            <button mat-button class="back mr-1" matStepperPrevious>Back</button>
+            <button mat-button class="nxt" matStepperNext>Next</button>
+          </div>
+     </form>
+      </mat-step>
+      <mat-step>
+        <form [formGroup]="form" class="normal-form" (submit)="onSubmit()">
+        <ng-template matStepLabel>Requested Service Data</ng-template>
+        <mat-grid-list cols="2" rowHeight="200px">
+          <mat-grid-tile >
+            <div class="controles-container">
+              <label class="mb-0">Requested Service / Speed " السرعة المطلوبة *":</label>
+              <section class="example-section d-flex">
+               <div>
+                <p class="mb-0"><mat-checkbox formControlName="E1" >E1</mat-checkbox></p>
+                <p class="mb-0"><mat-checkbox formControlName="E3" >E3</mat-checkbox></p>
+                <p class="mb-0"><mat-checkbox formControlName="DS3" >DS3</mat-checkbox></p>
+              </div>
+              <div>
+                <p class="mb-0"><mat-checkbox formControlName="STM1" >STM1</mat-checkbox></p>
+                <p class="mb-0"><mat-checkbox formControlName="STM4" >STM4</mat-checkbox></p>
+                <p class="mb-0"><mat-checkbox formControlName="STM16" >STM16</mat-checkbox></p>
+              </div>
+              <div>
+                <p class="mb-0"><mat-checkbox formControlName="Ethernet">Ethernet</mat-checkbox></p>
+                <p class="mb-0"><mat-checkbox formControlName="IPLC" >IPLC-دولي</mat-checkbox></p>
+                <p class="mb-0"><mat-checkbox formControlName="DOMESTIC">DOMESTIC-دائره محليه</mat-checkbox></p>
+              
+              </div>
+              </section>
+
+              <mat-form-field>
+                <input formControlName="NumberofCircuits" matInput placeholder="Number of Circuits / عدد الدوائر*">
+                <mat-error>This field is mandatory.</mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="FullAddress" matInput placeholder="Full Address / عنوان الخدمة*">
+                <mat-error>This field is mandatory.</mat-error>
+              </mat-form-field>
+              </div>
+              </mat-grid-tile>
+              <mat-grid-tile >
+                <div class="controles-container">
+              <mat-form-field>
+                <input formControlName="ExchangeName" matInput placeholder="Exchange Name / اسم السنترال*">
+                <mat-error>This field is mandatory.</mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="NearestFixedLineNumber" matInput placeholder="Nearest Fixed Line Number / اقرب تليفون*">
+                <mat-error>This field is mandatory.</mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input formControlName="ExpectedUpgrades" matInput placeholder="Expected Upgrades /  الترقية المتوقعة">
+                <mat-error>This field is mandatory.</mat-error>
+              </mat-form-field>
+             
+              </div>
+              </mat-grid-tile>
+              </mat-grid-list>
+        <div class="text-right">
+          <button mat-button class="back mr-1" matStepperPrevious>Back</button>
+          <button mat-button class="nxt" matStepperNext>Next</button>
+        </div>
+    </form>
+    </mat-step>
+    <mat-step>
+      <form [formGroup]="form" class="normal-form" (submit)="onSubmit()">
+      <ng-template matStepLabel>Feedback</ng-template>
+      <mat-grid-list cols="1" rowHeight="160px">
+        <mat-grid-tile>
+          <div class="controles-container">
+            <!-- <mat-form-field>
+              <input formControlName="ContractPeriod" matInput placeholder="Contract Period">
+             
+            </mat-form-field> -->
+            <label style="font-size: 18px;">Contract Period : </label>
+            <div class="add-bottom-padding">
+              <label class="radio-group-label" style="width:130px">Circuit Protection : </label>
+              <mat-radio-group formControlName="CircuitProtection">
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="2">No</mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div class="add-bottom-padding">
+              <label class="radio-group-label" style="width:130px">Path Protection : </label>
+              <mat-radio-group formControlName="PathProtection">
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="2">No</mat-radio-button>
+              </mat-radio-group>
+            </div>
+           
+            </div>
+            </mat-grid-tile>
+            </mat-grid-list>
+
+
+      <div class="text-right">
+        <button mat-button class="back mr-1" matStepperPrevious>Back</button>
+        <button mat-button class="nxt" matStepperNext>Next</button>
+       
+      </div>
+     </form>
+      </mat-step>
+      <mat-step>
+        <form [formGroup]="form" class="normal-form" (submit)="onSubmit()">
+        <ng-template matStepLabel>Signature</ng-template>
+        <mat-grid-list cols="2" rowHeight="80px">
+          <mat-grid-tile>
+            <div class="controles-container">
+              <mat-form-field>
+                <input formControlName="Name" matInput placeholder="Name / الاسم*">
+                <mat-error>This field is mandatory.</mat-error>
+               
+              </mat-form-field>
+             
+              </div>
+              </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="controles-container">
+              <mat-form-field>
+                <input formControlName="Signature" matInput placeholder="Signature / التوقيع*">
+                <mat-error>This field is mandatory.</mat-error>
+              </mat-form-field>
+              </div>
+              </mat-grid-tile>
+              </mat-grid-list>
+        <div class="text-right">
+          <button mat-button class="back mr-1" matStepperPrevious>Back</button>
+          <button mat-button   matStepperNext class="sub" type="submit">Submit</button>
+        </div>
+        </form>
+      </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div class="text-right">
+            <button mat-button class="back mr-1" matStepperPrevious>Back</button>
+            
+            <button mat-button class="reset" (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+      
+</mat-card>

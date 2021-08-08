@@ -1,0 +1,14 @@
+mat-radio-button{
+    margin:0 5px;
+    vertical-align: sub;
+}
+.radio-group-label{
+    margin: 5px 5px 5px 0;
+}
+.mat-icon-button{
+    color: #a0a68d !important;
+    
+}
+label.sp{
+    color: #c5c4a4;
+}
